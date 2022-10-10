@@ -1,1 +1,0 @@
-docker build --platform linux/amd64 -t europe-north1-docker.pkg.dev/test-stuff-349017/cloud-hello-world/cloud-hello-world:latest .
