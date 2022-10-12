@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     current_time = datetime.utcnow().strftime('%Y%m%d%H%M%S')
 
-    bucket = gcs_client.get_bucket(BUCKET_NAME))
+    bucket = gcs_client.get_bucket(BUCKET_NAME)
     blob = bucket.blob(f'results/{current_time}.txt')
 
     blob.upload_from_string(
