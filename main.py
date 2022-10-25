@@ -1,7 +1,8 @@
 import logging
 import sys
-from google.cloud import storage
 from datetime import datetime
+
+from google.cloud import storage
 
 from config import BUCKET_NAME
 

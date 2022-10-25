@@ -1,6 +1,0 @@
-#!/bin/zsh
-
-image_name=path/to/your/registry/in/cloud
-
-docker build --platform linux/amd64 -t $image_name . &&
-docker push $image_name
