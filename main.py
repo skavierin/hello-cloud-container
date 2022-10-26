@@ -1,12 +1,9 @@
 import logging
 import sys
 from datetime import datetime
-import json
 import os
 
 from google.cloud import storage
-
-from config import BUCKET_NAME
 
 root = logging.getLogger()
 root.setLevel(logging.DEBUG)
@@ -25,13 +22,11 @@ if __name__ == '__main__':
 
     current_time = datetime.utcnow().strftime('%Y-%m-%d:%H%M%S')
 
-    bucket = gcs_client.get_bucket(BUCKET_NAME)
-    blob = bucket.blob(f'results/{current_time}.json')
-
-    string_to_upload = json.dumps(dict(os.environ), indent=4)
+    bucket = gcs_client.get_bucket(f"{os.environ['GOOGLE_CLOUD_PROJECT']}-misc-storage")
+    blob = bucket.blob(f'results/{current_time}.txt')
 
     blob.upload_from_string(
-        string_to_upload, content_type='application/x-www-form-urlencoded;charset=UTF-8')
+        '', content_type='application/x-www-form-urlencoded;charset=UTF-8')
 
     logger.info(f'File created in bucket {bucket}, at path {blob}')
 
