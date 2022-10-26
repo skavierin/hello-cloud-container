@@ -1,3 +1,3 @@
+import os
 
-
-BUCKET_NAME = 'test-stuff-349017-misc-storage'
+BUCKET_NAME = f"{os.environ['GOOGLE_CLOUD_PROJECT']}-misc-storage"
